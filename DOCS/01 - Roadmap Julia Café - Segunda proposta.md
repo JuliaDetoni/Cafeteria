@@ -1,20 +1,16 @@
- Gu, você está absolutamente certa. O roadmap anterior está **inclinado para aprender Django**, não para desenvolver a Cafeteria. É um guia de estudos disfarçado de cronograma de projeto. Vou refazer.
-
----
-
 ## O problema do roadmap anterior
 
-| Falha | Por quê |
-|-------|---------|
-| **Dia 2-3: "Mapear 9 tabelas"** | `inspectdb` faz isso em 10 minutos. O resto do dia fica vazio. |
-| **Dia 4: Só Admin** | Admin é ferramenta interna, não é tela do sistema. |
-| **Dia 5: "Primeiras FBVs"** | Uma listagem e um detalhe levam 30 minutos se os models estão prontos. |
-| **Dia 8: "CRUD Cardápio"** | Só cardápio? E comanda, mesa, funcionário, caixa? |
-| **Dia 10: "Comandas"** | Só agora? A comanda é o **core do negócio**. Deveria vir antes. |
-| **Dia 14: Auth** | Auth deveria vir no dia 1 — sem login, não há contexto de funcionário/mesa. |
-| **Dia 17: Testes** | Testes são importantes, mas em 20 dias com deadline, são luxo. |
-| **Nenhum dia para "Cozinha"** | O pedido sai da comanda, vai para a cozinha, volta pronto. Esse fluxo não existe no roadmap. |
-| **Nenhum dia para "ajustes e bugs"** | 20 dias sem buffer é ilusão. |
+| Falha                                | Por quê                                                                                      |
+| ------------------------------------ | -------------------------------------------------------------------------------------------- |
+| **Dia 2-3: "Mapear 9 tabelas"**      | `inspectdb` faz isso em 10 minutos. O resto do dia fica vazio.                               |
+| **Dia 4: Só Admin**                  | Admin é ferramenta interna, não é tela do sistema.                                           |
+| **Dia 5: "Primeiras FBVs"**          | Uma listagem e um detalhe levam 30 minutos se os models estão prontos.                       |
+| **Dia 8: "CRUD Cardápio"**           | Só cardápio? E comanda, mesa, funcionário, caixa?                                            |
+| **Dia 10: "Comandas"**               | Só agora? A comanda é o **core do negócio**. Deveria vir antes.                              |
+| **Dia 14: Auth**                     | Auth deveria vir no dia 1 — sem login, não há contexto de funcionário/mesa.                  |
+| **Dia 17: Testes**                   | Testes são importantes, mas em 20 dias com deadline, são luxo.                               |
+| **Nenhum dia para "Cozinha"**        | O pedido sai da comanda, vai para a cozinha, volta pronto. Esse fluxo não existe no roadmap. |
+| **Nenhum dia para "ajustes e bugs"** | 20 dias sem buffer é ilusão.                                                                 |
 
 ---
 
@@ -74,24 +70,6 @@ Você não precisa saber o que é `select_related` para abrir uma comanda. Você
 | **19** | Deploy | Preparar para Kinghost, `collectstatic`, WhiteNoise | `settings/production.py`, `ALLOWED_HOSTS`, `DEBUG=False` |
 | **20** | Buffer | Bugs, ajustes finais, documentação | — |
 
----
-
-## Comparação: antes vs depois
-
-| Aspecto | Antes (aprendizado) | Agora (projeto) |
-|---------|---------------------|-----------------|
-| **Dia 1** | Instalar coisas | Login funcional |
-| **Dia 4** | Só Admin | Mesas ocupáveis |
-| **Dia 6** | Templates teóricos | Comanda aberta |
-| **Dia 8** | HTMX "busca de itens" | Pedido real na comanda |
-| **Dia 10** | Models de comanda | Cozinha recebendo pedidos |
-| **Dia 14** | Auth (tarde demais) | Caixa funcionando |
-| **Telas dia 1** | 0 | 2 (login, logout) |
-| **Telas dia 5** | 0 | ~8 (cardápio CRUD + mesas + funcionários) |
-| **Telas dia 10** | ~3 | ~15 (toda a operação da cafeteria) |
-
----
-
 ## Regra de ouro para os 20 dias
 
 > **"Hoje eu quero ver a tela X funcionando. O Django que me ensine como."**
@@ -102,9 +80,3 @@ Sim: "Hoje eu quero criar um item no cardápio. Vou usar CreateView porque é r�
 O aprendizado vem como **efeito colateral** de construir. Não como objetivo.
 
 ---
-
-## Sobre "3 telas por dia"
-
-É realista para CRUDs simples (listar, criar, editar de um mesmo model). Para telas complexas (comanda com HTMX, cozinha com fila), 1 tela bem feita por dia é vitória. O roadmap acima assume **1-2 telas por dia**, com dias de buffer.
-
-Quer que eu ajuste mais alguma coisa? Por exemplo, trocar a ordem de alguma tela, ou adicionar algo que esqueci (reservas de mesa, controle de estoque, relatório de funcionário)?
